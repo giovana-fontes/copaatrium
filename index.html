@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>III Copa Atrium de Natação | 12 de Setembro 2026</title>
+<meta name="description" content="III Copa Atrium de Natação - 12 de Setembro de 2026 - Santo André, SP">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;background:#0f172a}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#fff;letter-spacing:1px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 20px 80px;overflow:hidden}
+.hero-video-wrap{position:absolute;inset:0;overflow:hidden}
+.hero-video-wrap video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%,-50%);object-fit:cover}
+.hero-video-overlay{position:absolute;inset:0;background:rgba(255,255,255,.45)}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(52px,10vw,96px);font-weight:900;line-height:.9;color:#0f172a;margin-bottom:4px;letter-spacing:-2px}
+.hero-title-accent{display:block;color:#5a9bd5;font-size:clamp(64px,13vw,120px);letter-spacing:-3px}
+.hero-sub{font-family:'Montserrat',sans-serif;font-size:clamp(18px,3vw,26px);font-weight:400;color:#374151;margin-bottom:12px;letter-spacing:3px}
+.hero-desc{font-size:16px;color:#6b7280;max-width:600px;line-height:1.7;margin:0 auto 24px}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.hero-meta-item{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#5a9bd5}
+.hero-meta-item svg{width:16px;height:16px;stroke:#5a9bd5;fill:none;stroke-width:2}
+.hero-dot{width:5px;height:5px;border-radius:50%;background:#9ca3af}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-blue{padding:14px 36px;background:#4f46e5;color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;border-radius:8px;border:none;cursor:pointer;transition:background .2s}
+.btn-blue:hover{background:#4338ca}
+.btn-white{padding:14px 36px;background:#fff;color:#374151;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;border-radius:8px;border:1px solid #e5e7eb;cursor:pointer;transition:border-color .2s}
+.btn-white:hover{border-color:#9ca3af}
+.scroll-down{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#9ca3af;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;animation:floatY 2s ease-in-out infinite}
+@keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.hero-wave-divider{position:absolute;bottom:0;left:0;width:100%;height:80px;z-index:3;overflow:hidden}
+.hero-wave-divider svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
+.wl1{animation:wDrift1 8s ease-in-out infinite alternate}
+.wl2{animation:wDrift2 6s ease-in-out infinite alternate}
+.wl3{animation:wDrift3 10s ease-in-out infinite alternate}
+.wl4{animation:wDrift4 7s ease-in-out infinite alternate}
+@keyframes wDrift1{0%{transform:translateX(0)}100%{transform:translateX(-8%)}}
+@keyframes wDrift2{0%{transform:translateX(-4%)}100%{transform:translateX(4%)}}
+@keyframes wDrift3{0%{transform:translateX(2%)}100%{transform:translateX(-6%)}}
+@keyframes wDrift4{0%{transform:translateX(-2%)}100%{transform:translateX(6%)}}
+
+/* SPONSORS */
+#sponsors{padding:48px 20px;background:#fff;text-align:center}
+.sponsors-label{font-size:12px;font-weight:600;color:#9ca3af;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.sponsors-name{font-family:'Montserrat',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:#d1d5db;letter-spacing:3px}
+
+/* SOBRE */
+#sobre{background:#5a9bd5;padding:80px 20px}
+.container{max-width:1100px;margin:0 auto}
+.sobre-title{font-family:'Montserrat',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;text-align:center;margin-bottom:16px;letter-spacing:-1px}
+.sobre-desc{font-size:16px;color:rgba(255,255,255,.85);text-align:center;max-width:700px;margin:0 auto 48px;line-height:1.7}
+.sobre-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sobre-card{background:#fff;border-radius:16px;padding:32px 24px;text-align:center}
+.sobre-icon{width:52px;height:52px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.sobre-icon svg{width:24px;height:24px;stroke:#5a9bd5;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sobre-card h3{font-size:18px;font-weight:700;color:#0f172a;margin-bottom:8px}
+.sobre-card p{font-size:14px;color:#6b7280;line-height:1.6}
+
+/* ETAPAS */
+.etapa-section{padding:80px 20px}
+.etapa-section.bg-white{background:#fff}
+.etapa-section.bg-light{background:#f8fafc}
+.etapa-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1100px;margin:0 auto}
+.etapa-inner.reverse{direction:rtl}
+.etapa-inner.reverse>*{direction:ltr}
+.etapa-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;margin-bottom:16px;background:#eff6ff;color:#5a9bd5;border:1px solid #bfdbfe}
+.etapa-big{font-family:'Montserrat',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#0f172a;line-height:1;margin-bottom:8px}
+.etapa-accent{color:#5a9bd5;display:block}
+.etapa-desc{font-size:15px;color:#6b7280;line-height:1.7;margin-bottom:24px}
+.etapa-btn{display:inline-flex;padding:12px 28px;background:#4f46e5;color:#fff;font-weight:600;font-size:14px;border-radius:8px;border:none;cursor:pointer;transition:background .2s}
+.etapa-btn:hover{background:#4338ca}
+.cat-card{background:#f8fafc;border-radius:16px;padding:28px}
+.cat-card h4{font-size:18px;font-weight:700;color:#0f172a;margin-bottom:20px}
+.cat-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #e5e7eb}
+.cat-row:last-child{border-bottom:none}
+.cat-name{font-weight:600;font-size:14px;color:#374151}
+.cat-name small{font-weight:400;color:#9ca3af;margin-left:6px}
+.cat-badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;background:#eff6ff;color:#5a9bd5}
+.cat-badge.green{background:#f0fdf4;color:#16a34a}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.stat-box{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px;text-align:center}
+.stat-label{font-size:11px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.stat-value{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#0f172a}
+
+/* LOCAL */
+#local{padding:80px 20px;background:#fff}
+.local-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
+.local-label{font-size:12px;font-weight:700;color:#5a9bd5;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.local-title{font-family:'Montserrat',sans-serif;font-size:clamp(24px,4vw,40px);font-weight:900;color:#0f172a;line-height:1.1;margin-bottom:16px}
+.local-title span{color:#5a9bd5;display:block}
+.local-desc{font-size:15px;color:#6b7280;line-height:1.7;margin-bottom:20px}
+.local-addr{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:#374151;margin-bottom:12px}
+.local-addr svg{width:16px;height:16px;stroke:#5a9bd5;fill:none;stroke-width:2;flex-shrink:0;margin-top:2px}
+.local-map-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#5a9bd5;margin-top:4px}
+.local-map-link svg{width:16px;height:16px;stroke:#5a9bd5;fill:none;stroke-width:2}
+.map-box{border-radius:16px;overflow:hidden;height:340px;border:1px solid #e5e7eb}
+.map-box iframe{width:100%;height:100%;border:0}
+
+/* REGULAMENTO */
+#regulamento{padding:80px 20px;background:#5a9bd5}
+.reg-title{font-family:'Montserrat',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;text-align:center;letter-spacing:2px;margin-bottom:12px}
+.reg-desc{font-size:15px;color:rgba(255,255,255,.85);text-align:center;max-width:600px;margin:0 auto 40px;line-height:1.6}
+.reg-card{background:#fff;border-radius:16px;padding:24px 32px;max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.reg-card-left{display:flex;align-items:center;gap:16px}
+.reg-icon{width:48px;height:48px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.reg-icon svg{width:24px;height:24px;stroke:#5a9bd5;fill:none;stroke-width:1.8}
+.reg-card-name{font-weight:700;font-size:16px;color:#0f172a}
+.reg-card-sub{font-size:13px;color:#9ca3af}
+.btn-download-pdf{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#4f46e5;color:#fff;font-weight:600;font-size:14px;border-radius:8px;border:none;cursor:pointer;white-space:nowrap}
+
+/* INSCRIÇÃO */
+#inscricao{padding:80px 20px;background:#f8fafc}
+.insc-header{text-align:center;margin-bottom:40px}
+.insc-top{font-family:'Montserrat',sans-serif;font-size:clamp(32px,6vw,56px);font-weight:900;color:#5a9bd5;letter-spacing:2px;margin-bottom:4px}
+.insc-sub{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#0f172a;margin-bottom:8px}
+.insc-desc{font-size:15px;color:#6b7280}
+.form-wrap{max-width:820px;margin:0 auto}
+.form-section{margin-bottom:32px}
+.form-section-title{font-size:20px;font-weight:700;color:#0f172a;margin-bottom:16px}
+.form-card{background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:28px;margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-row.full{grid-template-columns:1fr}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:13px;font-weight:600;color:#374151}
+.form-group input,.form-group select{padding:12px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:#374151;background:#fff;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#5a9bd5;box-shadow:0 0 0 3px rgba(90,155,213,.1)}
+.form-group input::placeholder{color:#9ca3af}
+.checkbox-row{display:flex;align-items:center;gap:10px;margin-top:8px}
+.checkbox-row input[type=checkbox]{width:18px;height:18px;cursor:pointer;accent-color:#4f46e5}
+.checkbox-row label{font-size:14px;color:#374151;cursor:pointer}
+.kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:0}
+.kit-card{padding:20px;border-radius:12px;border:1.5px solid #e5e7eb;background:#fff;cursor:pointer;transition:border-color .2s;text-align:center;position:relative}
+.kit-card:hover{border-color:#93c5fd}
+.kit-card.selected{border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.kit-card h4{font-size:15px;font-weight:600;color:#0f172a;margin-bottom:6px}
+.kit-card p{font-size:12px;color:#6b7280;line-height:1.5}
+.kit-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);padding:3px 12px;border-radius:12px;background:#10b981;color:#fff;font-size:11px;font-weight:700;white-space:nowrap}
+.kit-check{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;background:#4f46e5;display:none;align-items:center;justify-content:center}
+.kit-card.selected .kit-check{display:flex}
+.lote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lote-box{padding:16px;border-radius:12px;border:1.5px solid #e5e7eb;background:#fff;text-align:center;cursor:pointer;transition:border-color .2s}
+.lote-box.active{border-color:#4f46e5;background:#eff6ff}
+.lote-box.dim{opacity:.45;cursor:default}
+.lote-name{font-size:13px;font-weight:600;color:#6b7280;margin-bottom:6px}
+.lote-price{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#4f46e5}
+.lote-box.dim .lote-price{color:#9ca3af}
+.lote-soon{font-size:12px;color:#9ca3af;margin-top:4px}
+.prova-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.prova-box{padding:14px 8px;border-radius:10px;border:1.5px solid #e5e7eb;background:#fff;text-align:center;font-size:13px;font-weight:600;color:#374151;cursor:pointer;transition:border-color .2s}
+.prova-box:hover:not(.dim){border-color:#93c5fd}
+.prova-box.selected{border-color:#4f46e5;background:#eff6ff;color:#4f46e5}
+.prova-box.dim{opacity:.4;cursor:default}
+.prova-box small{display:block;font-size:10px;font-weight:400;color:#9ca3af;margin-top:2px}
+.prova-count{font-size:13px;color:#9ca3af;margin-top:8px}
+.add-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:#fff;border:1.5px dashed #d1d5db;border-radius:12px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#6b7280;cursor:pointer;margin:24px 0 8px;transition:.2s}
+.add-btn:hover{border-color:#5a9bd5;color:#5a9bd5}
+.add-note{text-align:center;font-size:12px;color:#9ca3af;margin-bottom:24px}
+
+/* CUPOM */
+.coupon-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-bottom:16px}
+.coupon-title{font-size:16px;font-weight:700;color:#0f172a;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.coupon-title svg{width:18px;height:18px;stroke:#5a9bd5;fill:none;stroke-width:2}
+.coupon-row{display:flex;gap:10px}
+.coupon-row input{flex:1;padding:11px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:#374151}
+.coupon-row input:focus{outline:none;border-color:#5a9bd5}
+.coupon-apply{padding:11px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;font-weight:600;font-size:14px;color:#374151;cursor:pointer;transition:.2s;white-space:nowrap}
+.coupon-apply:hover{border-color:#5a9bd5;color:#5a9bd5}
+.coupon-hint{margin-top:12px}
+.coupon-hint-toggle{font-size:13px;color:#5a9bd5;cursor:pointer;display:flex;align-items:center;gap:4px}
+.coupon-list{margin-top:8px;display:none}
+.coupon-list li{font-size:13px;color:#374151;margin-bottom:4px;list-style:disc;margin-left:20px}
+.coupon-list li strong{color:#0f172a}
+.coupon-msg{font-size:13px;margin-top:8px}
+.coupon-msg.ok{color:#16a34a}
+.coupon-msg.err{color:#dc2626}
+.discount-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;margin-top:10px}
+.discount-label{font-size:13px;font-weight:600;color:#16a34a}
+.discount-val{font-size:16px;font-weight:800;color:#16a34a;display:flex;align-items:center;gap:8px}
+.remove-coupon{background:none;border:none;cursor:pointer;color:#dc2626;font-size:18px;line-height:1}
+
+/* CARRINHO */
+.cart-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px}
+.cart-title{font-size:17px;font-weight:700;color:#0f172a;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cart-title svg{width:20px;height:20px;stroke:#5a9bd5;fill:none;stroke-width:2}
+.cart-empty{font-size:14px;color:#9ca3af;text-align:center;padding:16px 0}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:#f8fafc;border:1px solid #f1f5f9;margin-bottom:8px}
+.cart-item-name{font-weight:700;font-size:14px;color:#374151}
+.cart-item-detail{font-size:12px;color:#6b7280;margin-top:2px}
+.cart-item-pcd{font-size:11px;font-weight:600;color:#4f46e5;margin-top:2px}
+.cart-item-right{display:flex;align-items:center;gap:10px}
+.cart-item-price{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:#0f172a}
+.cart-remove{background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;border:1px solid #e5e7eb;transition:.2s}
+.cart-remove:hover{border-color:#dc2626;background:#fef2f2}
+.cart-remove svg{width:14px;height:14px;stroke:#dc2626;fill:none;stroke-width:2}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px;margin-top:8px;border-top:1px solid #e5e7eb}
+.cart-total-label{font-size:14px;color:#6b7280}
+.cart-total-val{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;color:#0f172a}
+.final-total-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:8px;margin-top:4px}
+.final-total-label{font-size:14px;font-weight:600;color:#374151}
+.final-total-val{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;color:#16a34a}
+.btn-finalizar{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;background:#4f46e5;color:#fff;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;border-radius:12px;border:none;cursor:pointer;margin-top:16px;transition:background .2s}
+.btn-finalizar:hover{background:#4338ca}
+.btn-finalizar:disabled{opacity:.5;cursor:not-allowed}
+.btn-finalizar svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2}
+
+/* FOOTER */
+footer{background:#0f172a;padding:56px 20px 24px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#fff;letter-spacing:1px;margin-bottom:12px}
+.footer-info{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7}
+.footer-col-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,.6);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;text-align:center;font-size:13px;color:rgba(255,255,255,.35);max-width:1100px;margin:0 auto}
+.footer-bottom a{color:#5a9bd5}
+
+/* PRELOADER */
+#preloader{position:fixed;inset:0;z-index:9999;background:#0f172a;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
+#preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.pre-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:#fff;letter-spacing:1px;margin-bottom:6px}
+.pre-sub{font-size:13px;color:#5a9bd5;margin-bottom:24px}
+.pre-bar{width:160px;height:3px;background:rgba(90,155,213,.2);border-radius:2px;overflow:hidden}
+.pre-fill{height:100%;width:0;background:#5a9bd5;border-radius:2px;transition:width 1.8s ease}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 16px}
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#0f172a;flex-direction:column;padding:16px;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  .sobre-cards,.etapa-inner,.local-inner,.footer-grid{grid-template-columns:1fr}
+  .etapa-inner.reverse{direction:ltr}
+  .kit-grid{grid-template-columns:1fr}
+  .lote-grid{grid-template-columns:1fr}
+  .prova-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .reg-card{flex-direction:column;text-align:center}
+  .hero-title{font-size:clamp(44px,12vw,72px)}
+  .hero-title-accent{font-size:clamp(52px,15vw,96px)}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pre-logo">III C<span style="color:#5a9bd5">◆</span>PA ATRIUM</div>
+  <div class="pre-sub">de Natação</div>
+  <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">III C<span style="color:#5a9bd5">◆</span>PA ATRIUM</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#etapa1">1ª Etapa</a></li>
+    <li><a href="#etapa2">2ª Etapa</a></li>
+    <li><a href="#local">Local</a></li>
+    <li><a href="#regulamento">Regulamento</a></li>
+    <li><a href="#inscricao">Inscrição</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline><source src="video.mp4" type="video/mp4"></video>
+    <div class="hero-video-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-title" id="ha1">III COPA<span class="hero-title-accent">ATRIUM</span></h1>
+    <p class="hero-sub" id="ha2">DE NATAÇÃO</p>
+    <p class="hero-desc" id="ha3">Duas etapas em um único dia — manhã de provas individuais e tarde de competição completa nos 4 estilos.</p>
+    <div class="hero-meta" id="ha4">
+      <span class="hero-meta-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 12 de Setembro de 2026</span>
+      <span class="hero-dot"></span>
+      <span class="hero-meta-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Complexo Esportivo Pedro Dell Antonia</span>
+    </div>
+    <div class="hero-btns" id="ha5">
+      <a href="#inscricao" class="btn-blue">Inscreva-se Agora</a>
+      <a href="#sobre" class="btn-white">Saiba Mais</a>
+    </div>
+  </div>
+  <div class="scroll-down" id="ha6">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </div>
+  <div class="hero-wave-divider">
+    <svg class="wl1" viewBox="0 0 2880 80" preserveAspectRatio="none"><path d="M0,55 C360,80 720,25 1080,55 C1440,80 1800,25 2160,55 C2520,80 2880,25 2880,55 L2880,80 L0,80Z" fill="rgba(255,255,255,.1)"/></svg>
+    <svg class="wl2" viewBox="0 0 2880 80" preserveAspectRatio="none"><path d="M0,60 C480,30 960,75 1440,45 C1920,15 2400,70 2880,60 L2880,80 L0,80Z" fill="rgba(255,255,255,.15)"/></svg>
+    <svg class="wl3" viewBox="0 0 2880 80" preserveAspectRatio="none"><path d="M0,65 C600,40 1200,78 1800,50 C2400,22 2880,65 2880,65 L2880,80 L0,80Z" fill="rgba(255,255,255,.2)"/></svg>
+    <svg class="wl4" viewBox="0 0 2880 80" preserveAspectRatio="none"><path d="M0,70 C720,50 1440,78 2160,58 C2880,38 2880,70 2880,70 L2880,80 L0,80Z" fill="#ffffff"/></svg>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <p class="sponsors-label reveal">Patrocinadores Oficiais</p>
+  <p class="sponsors-name reveal">ATRIUM SHOPPING</p>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <h2 class="sobre-title reveal">DUAS ETAPAS, UM GRANDE DIA</h2>
+    <p class="sobre-desc reveal">A III Copa Atrium de Natação reúne nadadores de todas as idades em um dia completo de competição. Pela manhã, provas individuais de 25m. À tarde, o desafio completo nos 4 estilos com classificação geral por somatória de tempos.</p>
+    <div class="sobre-cards">
+      <div class="sobre-card reveal">
+        <div class="sobre-icon"><svg viewBox="0 0 24 24"><path d="M2 12s2-4 6-4 6 4 6 4-2 4-6 4-6-4-6-4z"/><path d="M10 12s2-4 6-4 6 4 6 4-2 4-6 4-6-4-6-4z" opacity=".4"/></svg></div>
+        <h3>1ª Etapa - Manhã</h3>
+        <p>Provas individuais de 25m nos 4 estilos. Até 3 provas por nadador.</p>
+      </div>
+      <div class="sobre-card reveal">
+        <div class="sobre-icon"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+        <h3>2ª Etapa - Tarde</h3>
+        <p>4 provas obrigatórias (uma de cada estilo). Classificação pela somatória de tempos.</p>
+      </div>
+      <div class="sobre-card reveal">
+        <div class="sobre-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Dia Completo</h3>
+        <p>Participação nas duas etapas, período da manhã e tarde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1ª ETAPA -->
+<section class="etapa-section bg-white" id="etapa1">
+  <div class="etapa-inner">
+    <div class="reveal">
+      <span class="etapa-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> 12 de Setembro — Manhã</span>
+      <div class="etapa-big">1ª ETAPA<span class="etapa-accent">PROVAS DE 25M</span></div>
+      <p class="etapa-desc">Provas individuais cronometradas de 25m nos estilos Crawl, Costas, Peito e Borboleta (Borboleta apenas para categoria Master). Cada nadador pode participar de até 3 provas.</p>
+      <a href="#inscricao" class="etapa-btn">Garantir Vaga — 1ª Etapa</a>
+    </div>
+    <div class="cat-card reveal">
+      <h4>Categorias</h4>
+      <div class="cat-row"><span class="cat-name">Pré-mirim</span><span class="cat-badge">2018 e 2019</span></div>
+      <div class="cat-row"><span class="cat-name">Mirim 1</span><span class="cat-badge">2017</span></div>
+      <div class="cat-row"><span class="cat-name">Mirim 2</span><span class="cat-badge">2016</span></div>
+      <div class="cat-row"><span class="cat-name">Petiz</span><span class="cat-badge">2014 e 2015</span></div>
+      <div class="cat-row"><span class="cat-name">Infanto-Juvenil</span><span class="cat-badge">2010 a 2013</span></div>
+      <div class="cat-row"><span class="cat-name">Master</span><span class="cat-badge">2009 ou anterior</span></div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-label">Estilos</div><div class="stat-value">4 estilos</div></div>
+        <div class="stat-box"><div class="stat-label">Provas/atleta</div><div class="stat-value">Até 3</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2ª ETAPA -->
+<section class="etapa-section bg-light" id="etapa2">
+  <div class="etapa-inner reverse">
+    <div class="cat-card reveal">
+      <h4>Categorias & Distâncias</h4>
+      <div class="cat-row"><span class="cat-name">Mirim <small>(2016 ou 2017)</small></span><span class="cat-badge green">50m</span></div>
+      <div class="cat-row"><span class="cat-name">Petiz 1 <small>(2015)</small></span><span class="cat-badge green">50m</span></div>
+      <div class="cat-row"><span class="cat-name">Petiz 2 <small>(2014)</small></span><span class="cat-badge green">50m</span></div>
+      <div class="cat-row"><span class="cat-name">Infanto-Juvenil <small>(2009 a 2013)</small></span><span class="cat-badge green">50m</span></div>
+      <div class="cat-row"><span class="cat-name">Absoluto Curta <small>(Livre)</small></span><span class="cat-badge green">50m</span></div>
+      <div class="cat-row"><span class="cat-name">Absoluto Longa <small>(Livre)</small></span><span class="cat-badge green">100m</span></div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-label">Provas</div><div class="stat-value">4 obrigatórias</div></div>
+        <div class="stat-box"><div class="stat-label">Premiação</div><div class="stat-value">Troféu Top 5</div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="etapa-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> 12 de Setembro — Tarde</span>
+      <div class="etapa-big">2ª ETAPA<span class="etapa-accent">DESAFIO 4 ESTILOS</span></div>
+      <p class="etapa-desc">Todos os nadadores nadam obrigatoriamente 4 provas — uma de cada estilo (Crawl, Costas, Peito e Borboleta). A classificação se dá pela somatória dos tempos, premiando os 5 melhores de cada categoria e sexo com troféu.</p>
+      <a href="#inscricao" class="etapa-btn">Garantir Vaga — 2ª Etapa</a>
+    </div>
+  </div>
+</section>
+
+<!-- REGULAMENTO -->
+<section id="regulamento">
+  <div class="container">
+    <h2 class="reg-title reveal">REGULAMENTO</h2>
+    <p class="reg-desc reveal">Acesse o regulamento completo da III Copa Atrium de Natação. A leitura é obrigatória antes de finalizar sua inscrição.</p>
+    <div class="reg-card reveal">
+      <div class="reg-card-left">
+        <div class="reg-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div>
+          <div class="reg-card-name">Regulamento Oficial</div>
+          <div class="reg-card-sub">PDF • III Copa Atrium de Natação</div>
+        </div>
+      </div>
+      <a href="regulamento.pdf" download="Regulamento_III_Copa_Atrium.pdf" class="btn-download-pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="form-wrap">
+    <div class="insc-header reveal">
+      <div class="insc-top">GARANTA SUA VAGA</div>
+      <div class="insc-sub">INSCRIÇÃO</div>
+      <p class="insc-desc">Preencha seus dados e escolha seu kit para garantir sua participação.</p>
+    </div>
+
+    <div class="form-section reveal">
+      <div class="form-section-title">1. Dados do Atleta</div>
+      <div class="form-card">
+        <div class="form-row">
+          <div class="form-group"><label>Nome Completo</label><input type="text" id="fNome" placeholder="Seu nome completo"></div>
+          <div class="form-group"><label>E-mail</label><input type="email" id="fEmail" placeholder="seu@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Telefone / WhatsApp</label><input type="tel" id="fTel" placeholder="(11) 99999-9999"></div>
+          <div class="form-group"><label>Data de Nascimento</label><input type="date" id="fNasc"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Gênero</label><select id="fGenero"><option value="">Selecione</option><option>Masculino</option><option>Feminino</option></select></div>
+          <div class="form-group"><label>Equipe</label><input type="text" id="fEntidade" placeholder="Nome da sua equipe (opcional)"></div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="fPcd" onchange="togglePcd(this)">
+          <label for="fPcd">Atleta PCD (Pessoa com Deficiência)</label>
+        </div>
+        <div id="pcdAcompWrap" style="display:none;margin-top:12px">
+          <div class="form-group"><label>Nome do Acompanhante</label><input type="text" id="fAcomp" placeholder="Nome do responsável"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section reveal">
+      <div class="form-section-title">2. Escolha seu Kit</div>
+      <div class="form-card">
+        <div class="kit-grid">
+          <div class="kit-card" data-kit="manha" onclick="selectKit(this)">
+            <h4>1ª Etapa (Manhã)</h4>
+            <p>Máximo de 3 Provas de 25m + Medalha</p>
+            <div class="kit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="kit-card" data-kit="tarde" onclick="selectKit(this)">
+            <h4>2ª Etapa (Tarde)</h4>
+            <p>Desafio 4 Estilos + Medalha + Disputa Troféu Top 5</p>
+            <div class="kit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="kit-card" data-kit="completo" onclick="selectKit(this)" style="position:relative">
+            <div class="kit-badge">Melhor valor</div>
+            <h4>Kit Completo</h4>
+            <p>1ª Etapa + 2ª Etapa + Medalha + Disputa Troféu Top 5</p>
+            <div class="kit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section reveal">
+      <div class="form-section-title">3. Selecione o Lote</div>
+      <div class="form-card">
+        <div class="lote-grid" id="loteGrid">
+          <div class="lote-box active" id="loteCard1"><div class="lote-name">1º Lote</div><div class="lote-price" id="loteP1">R$ 40</div></div>
+          <div class="lote-box dim" id="loteCard2"><div class="lote-name">2º Lote</div><div class="lote-price" id="loteP2">R$ 45</div><div class="lote-soon">Em breve</div></div>
+          <div class="lote-box dim" id="loteCard3"><div class="lote-name">3º Lote</div><div class="lote-price" id="loteP3">R$ 50</div><div class="lote-soon">Em breve</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section reveal" id="provaSection" style="display:none">
+      <div class="form-section-title">4. Escolha suas Provas (1ª Etapa — Manhã)</div>
+      <div class="form-card">
+        <p style="font-size:13px;color:#6b7280;margin-bottom:12px">Selecione até 3 provas de 25m. Borboleta disponível apenas para categoria Master (nascidos em 2009 ou antes).</p>
+        <div class="prova-grid">
+          <div class="prova-box" data-prova="25m Crawl" onclick="toggleProva(this)">25m Crawl</div>
+          <div class="prova-box" data-prova="25m Costas" onclick="toggleProva(this)">25m Costas</div>
+          <div class="prova-box" data-prova="25m Peito" onclick="toggleProva(this)">25m Peito</div>
+          <div class="prova-box dim" id="provaBorboleta" data-prova="25m Borboleta" onclick="toggleProva(this)">25m Borboleta<small>Apenas Master</small></div>
+        </div>
+        <p class="prova-count"><span id="provaCount">0</span>/3 provas selecionadas</p>
+      </div>
+    </div>
+
+    <button class="add-btn reveal" onclick="addToCart()">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+      Adicionar outro atleta
+    </button>
+    <p class="add-note">Confira e adicione o atleta atual ao carrinho, liberando o formulário para o próximo.</p>
+
+    <div class="coupon-wrap reveal">
+      <div class="coupon-title"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Cupom de desconto</div>
+      <div class="coupon-row">
+        <input type="text" id="couponInput" placeholder="Digite o código do cupom">
+        <button class="coupon-apply" onclick="applyCoupon()">Aplicar</button>
+      </div>
+      <div class="coupon-hint">
+        <div class="coupon-hint-toggle" onclick="toggleCouponList()">▼ Ver cupons disponíveis</div>
+        <ul class="coupon-list" id="couponList">
+          <li><strong>LIVRE10</strong> — 10% OFF para 10 a 14 atletas</li>
+          <li><strong>COSTAS15</strong> — 15% OFF para 15 a 19 atletas</li>
+          <li><strong>PEITO20</strong> — 20% OFF para 20 a 24 atletas</li>
+          <li><strong>BORBOLETA25</strong> — 25% OFF para 25+ atletas</li>
+        </ul>
+      </div>
+      <div class="coupon-msg" id="couponMsg" style="display:none"></div>
+      <div id="discountRow" style="display:none" class="discount-row">
+        <span class="discount-label" id="discountLabel">Desconto</span>
+        <span class="discount-val"><span id="discountValue">- R$ 0</span><button class="remove-coupon" onclick="removeCoupon()">×</button></span>
+      </div>
+    </div>
+
+    <div class="cart-wrap reveal">
+      <div class="cart-title"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Carrinho (<span id="cartCount">0</span> atletas)</div>
+      <div id="cartItems"><div class="cart-empty">Nenhum atleta adicionado ainda.</div></div>
+      <div id="cartTotal" style="display:none">
+        <div class="cart-total-row"><span class="cart-total-label">Total do carrinho</span><span class="cart-total-val" id="cartTotalPrice">R$ 0</span></div>
+        <div id="finalTotalRow" style="display:none" class="final-total-row"><span class="final-total-label">Total com desconto</span><span class="final-total-val" id="finalTotalPrice">R$ 0</span></div>
+      </div>
+      <button class="btn-finalizar" id="btnFinalizar" disabled onclick="finalizarInscricao()">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Finalizar Inscrição
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL -->
+<section id="local">
+  <div class="local-inner">
+    <div class="reveal">
+      <p class="local-label">Localização</p>
+      <h2 class="local-title">COMPLEXO ESPORTIVO<span>PEDRO DELL ANTONIA</span></h2>
+      <p class="local-desc">Um dos principais complexos esportivos da região do Grande ABC, com infraestrutura completa para competições de natação de alto nível.</p>
+      <div class="local-addr"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Rua São Pedro, nº 27 – Jardim Silveira<br>Santo André – SP – CEP: 09121-390</span></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua+Sao+Pedro+27+Jardim+Silveira+Santo+Andre+SP" target="_blank" rel="noopener" class="local-map-link"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Ver no Google Maps</a>
+    </div>
+    <div class="map-box reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.8!2d-46.5289!3d-23.6578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce43b6a29a2b57%3A0x8b9ef3b9c9f7a1e6!2sR.%20S%C3%A3o%20Pedro%2C%2027%20-%20Jardim%20Silveira%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009121-390!5e0!3m2!1spt-BR!2sbr!4v1" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">III C<span style="color:#5a9bd5">◆</span>PA ATRIUM</div>
+      <div class="footer-info">12 de Setembro de 2026<br>Complexo Esportivo Pedro Dell Antonia</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Links</div>
+      <ul class="footer-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#etapa1">1ª Etapa</a></li>
+        <li><a href="#etapa2">2ª Etapa</a></li>
+        <li><a href="#inscricao">Inscrição</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Patrocinadores</div>
+      <ul class="footer-links">
+        <li><a href="#">Atrium Shopping</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Dúvidas? Entre em contato: <a href="mailto:eventosnatacaosantoandre@gmail.com">eventosnatacaosantoandre&#64;gmail.com</a><br>
+    <span style="margin-top:8px;display:block">© 2026 III Copa Atrium de Natação. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<script>
+/* PRELOADER */
+window.addEventListener('load',function(){
+  document.getElementById('preFill').style.width='100%';
+  setTimeout(function(){
+    document.getElementById('preloader').classList.add('hide');
+    ['ha1','ha2','ha3','ha4','ha5','ha6'].forEach(function(id,i){
+      setTimeout(function(){var e=document.getElementById(id);if(e){e.style.transition='opacity .6s ease,transform .6s ease';e.style.opacity='1';e.style.transform='translateY(0)'}},i*120);
+    });
+  },2000);
+});
+
+/* Set initial opacity for hero elements */
+['ha1','ha2','ha3','ha4','ha5','ha6'].forEach(function(id){var e=document.getElementById(id);if(e){e.style.opacity='0';e.style.transform='translateY(30px)'}});
+
+/* HAMBURGER */
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+
+/* REVEAL */
+var rObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('active');rObs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){rObs.observe(el)});
+
+/* INSCRIPTION LOGIC */
+var cart=[];
+var selectedKit=null;
+var currentLotePrice=40;
+var activeCoupon=null;
+var discountAmount=0;
+
+var prices={manha:[40,45,50],tarde:[50,55,60],completo:[80,90,100]};
+var coupons={'BORBOLETA10':10,'COSTA15':15,'PEITO20':20,'LIVRE25':25,'LIVRE10':10,'COSTAS15':15,'PEITO20':20,'BORBOLETA25':25};
+
+function getLoteNum(kit){
+  var now=new Date();
+  var close=new Date('2026-09-11T12:00:00-03:00');
+  var l2=new Date('2026-08-29T23:59:59-03:00');
+  if(now>close)return 0;
+  var sold50=false;
+  if(now<=l2&&!sold50)return 1;
+  if(now<=l2)return 2;
+  return 3;
+}
+
+function updateLotePrices(){
+  var kit=selectedKit||'manha';
+  var p=prices[kit]||prices.manha;
+  document.getElementById('loteP1').textContent='R$ '+p[0];
+  document.getElementById('loteP2').textContent='R$ '+p[1];
+  document.getElementById('loteP3').textContent='R$ '+p[2];
+  var n=getLoteNum(kit);
+  currentLotePrice=n>0?p[n-1]:p[0];
+  [1,2,3].forEach(function(i){
+    var c=document.getElementById('loteCard'+i);
+    if(i===n){c.className='lote-box active'}
+    else{c.className='lote-box dim'}
+  });
+}
+updateLotePrices();
+
+function selectKit(el){
+  document.querySelectorAll('.kit-card').forEach(function(c){c.classList.remove('selected')});
+  el.classList.add('selected');
+  selectedKit=el.getAttribute('data-kit');
+  updateLotePrices();
+  var ps=document.getElementById('provaSection');
+  if(selectedKit==='manha'||selectedKit==='completo'){ps.style.display='block';updateBorboleta()}
+  else{ps.style.display='none';document.querySelectorAll('.prova-box').forEach(function(c){c.classList.remove('selected')});document.getElementById('provaCount').textContent='0'}
+}
+
+function updateBorboleta(){
+  var d=document.getElementById('fNasc').value;
+  var bb=document.getElementById('provaBorboleta');
+  if(d){var yr=parseInt(d.split('-')[0]);if(yr<=2009){bb.classList.remove('dim')}else{bb.classList.add('dim');bb.classList.remove('selected')}}
+  else{bb.classList.add('dim');bb.classList.remove('selected')}
+}
+document.getElementById('fNasc').addEventListener('input',function(){if(document.getElementById('provaSection').style.display!=='none')updateBorboleta()});
+
+function toggleProva(el){
+  if(el.classList.contains('dim'))return;
+  if(el.classList.contains('selected')){el.classList.remove('selected')}
+  else{if(document.querySelectorAll('.prova-box.selected').length>=3)return;el.classList.add('selected')}
+  document.getElementById('provaCount').textContent=document.querySelectorAll('.prova-box.selected').length;
+}
+
+function togglePcd(el){document.getElementById('pcdAcompWrap').style.display=el.checked?'block':'none'}
+
+function addToCart(){
+  if(getLoteNum(selectedKit||'manha')===0){alert('Inscrições encerradas.');return}
+  var nome=document.getElementById('fNome').value.trim();
+  var email=document.getElementById('fEmail').value.trim();
+  if(!nome){alert('Preencha o nome do atleta.');return}
+  if(!email){alert('Preencha o e-mail.');return}
+  if(!document.getElementById('fNasc').value){alert('Preencha a data de nascimento.');return}
+  if(!selectedKit){alert('Escolha um kit.');return}
+  var provas=[];
+  if(selectedKit==='manha'||selectedKit==='completo'){
+    document.querySelectorAll('.prova-box.selected').forEach(function(c){provas.push(c.getAttribute('data-prova'))});
+    if(provas.length===0){alert('Selecione pelo menos 1 prova da manhã.');return}
+  }
+  if(selectedKit==='tarde'){provas=['Crawl','Costas','Peito','Borboleta']}
+  var kitLabel={'manha':'1ª Etapa (Manhã)','tarde':'2ª Etapa (Tarde)','completo':'Kit Completo'}[selectedKit];
+  var pcd=document.getElementById('fPcd').checked;
+  cart.push({nome:nome,email:email,tel:document.getElementById('fTel').value,nasc:document.getElementById('fNasc').value,genero:document.getElementById('fGenero').value,entidade:document.getElementById('fEntidade').value,kit:kitLabel,kitKey:selectedKit,provas:provas,price:currentLotePrice,pcd:pcd,acomp:pcd?document.getElementById('fAcomp').value:''});
+  renderCart();resetForm();
+}
+
+function resetForm(){
+  ['fNome','fEmail','fTel','fNasc','fEntidade','fAcomp'].forEach(function(id){document.getElementById(id).value=''});
+  document.getElementById('fGenero').value='';
+  document.getElementById('fPcd').checked=false;
+  document.getElementById('pcdAcompWrap').style.display='none';
+  document.querySelectorAll('.kit-card').forEach(function(c){c.classList.remove('selected')});
+  document.querySelectorAll('.prova-box').forEach(function(c){c.classList.remove('selected')});
+  document.getElementById('provaSection').style.display='none';
+  document.getElementById('provaCount').textContent='0';
+  selectedKit=null;updateLotePrices();
+  document.getElementById('fNome').focus();
+}
+
+function removeFromCart(i){cart.splice(i,1);renderCart()}
+
+function renderCart(){
+  var ci=document.getElementById('cartItems'),cc=document.getElementById('cartCount'),ct=document.getElementById('cartTotal'),bf=document.getElementById('btnFinalizar');
+  cc.textContent=cart.length;
+  if(cart.length===0){ci.innerHTML='<div class="cart-empty">Nenhum atleta adicionado ainda.</div>';ct.style.display='none';bf.disabled=true;return}
+  var html='',total=0;
+  cart.forEach(function(a,i){
+    total+=a.price;
+    html+='<div class="cart-item"><div><div class="cart-item-name">'+(i+1)+'. '+a.nome+(a.pcd?' <span style="font-size:11px;color:#4f46e5;font-weight:600">[PCD]</span>':'')+'</div><div class="cart-item-detail">'+a.kit+(a.provas.length?' · '+a.provas.join(', '):'')+'</div></div><div class="cart-item-right"><span class="cart-item-price">R$ '+a.price+'</span><button class="cart-remove" onclick="removeFromCart('+i+')"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div></div>';
+  });
+  ci.innerHTML=html;
+  ct.style.display='block';
+  document.getElementById('cartTotalPrice').textContent='R$ '+total;
+  bf.disabled=false;
+  if(activeCoupon)applyCouponCalc();
+}
+
+function toggleCouponList(){var l=document.getElementById('couponList');l.style.display=l.style.display==='none'||l.style.display===''?'block':'none'}
+
+function applyCoupon(){
+  var code=document.getElementById('couponInput').value.trim().toUpperCase();
+  var msg=document.getElementById('couponMsg');
+  if(!code){msg.style.display='block';msg.className='coupon-msg err';msg.textContent='Digite um código.';return}
+  if(!coupons[code]){msg.style.display='block';msg.className='coupon-msg err';msg.textContent='Cupom inválido.';document.getElementById('discountRow').style.display='none';document.getElementById('finalTotalRow').style.display='none';activeCoupon=null;return}
+  activeCoupon=code;
+  msg.style.display='block';msg.className='coupon-msg ok';msg.textContent='Cupom '+code+' aplicado! '+coupons[code]+'% de desconto.';
+  applyCouponCalc();
+}
+
+function applyCouponCalc(){
+  var total=0;cart.forEach(function(a){total+=a.price});
+  var pct=coupons[activeCoupon];
+  discountAmount=Math.round(total*pct/100);
+  var final=total-discountAmount;
+  document.getElementById('discountLabel').textContent='Cupom '+activeCoupon+' ('+pct+'%)';
+  document.getElementById('discountValue').textContent='- R$ '+discountAmount;
+  document.getElementById('discountRow').style.display='flex';
+  document.getElementById('finalTotalPrice').textContent='R$ '+final;
+  document.getElementById('finalTotalRow').style.display='flex';
+}
+
+function removeCoupon(){activeCoupon=null;discountAmount=0;document.getElementById('couponInput').value='';document.getElementById('couponMsg').style.display='none';document.getElementById('discountRow').style.display='none';document.getElementById('finalTotalRow').style.display='none'}
+
+function finalizarInscricao(){
+  if(cart.length===0){alert('Adicione pelo menos um atleta.');return}
+  var total=0;cart.forEach(function(a){total+=a.price});
+  var finalTotal=activeCoupon?total-discountAmount:total;
+  var btn=document.getElementById('btnFinalizar');
+  btn.disabled=true;
+  btn.innerHTML='Processando...';
+  var items=cart.map(function(a){return{title:a.kit+' — '+a.nome,description:a.provas.length?'Provas: '+a.provas.join(', '):'Todas as provas',quantity:1,unit_price:a.price,currency_id:'BRL'}});
+  var preference={items:items,payer:{email:cart[0].email,name:cart[0].nome},payment_methods:{installments:1},back_urls:{success:'https://copaatrium.com/sucesso.html',failure:'https://copaatrium.com/inscricao-falhou.html',pending:'https://copaatrium.com/inscricao-pendente.html'},auto_return:'approved',statement_descriptor:'III COPA ATRIUM',external_reference:'COPA-ATRIUM-'+Date.now()};
+  fetch('https://broad-hall-4f56pagamento-copa.gfontesvitorino.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({athletes:cart,total:finalTotal,coupon:activeCoupon,discount:discountAmount})})
+  .then(function(r){return r.json()})
+  .then(function(d){if(d.init_point){window.location.href=d.init_point}else{alert('Erro: '+(d.message||'Tente novamente'));btn.disabled=false;btn.innerHTML='Finalizar Inscrição'}})
+  .catch(function(e){alert('Erro de conexão. Tente novamente.');btn.disabled=false;btn.innerHTML='Finalizar Inscrição'});
+}
+</script>
+</body>
+</html>
