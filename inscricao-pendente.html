@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aguardando Pagamento | III Copa Atrium</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F3F8FD;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:48px 40px;max-width:540px;width:100%;text-align:center;box-shadow:0 4px 40px rgba(90,155,213,.12)}
+.icon{width:80px;height:80px;border-radius:50%;background:#FFF8E1;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px}
+h1{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#1A2340;margin-bottom:8px}
+.sub{font-size:15px;color:#5A6577;margin-bottom:24px;line-height:1.6}
+.info{background:#F3F8FD;border-radius:14px;padding:20px 24px;margin-bottom:24px;text-align:left}
+.info p{font-size:14px;color:#5A6577;line-height:1.7}
+.info strong{color:#1A2340}
+.btn{display:inline-block;padding:14px 36px;background:#4f46e5;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;border-radius:12px;text-decoration:none;cursor:pointer;border:none;width:100%;margin-bottom:12px}
+.btn-secondary{display:inline-block;padding:14px 36px;background:#fff;color:#4f46e5;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;border-radius:12px;text-decoration:none;border:2px solid #4f46e5;width:100%}
+.note{margin-top:20px;font-size:13px;color:#9BA5B2}
+.status-msg{margin-top:16px;font-size:14px;font-weight:600;padding:12px;border-radius:8px;display:none}
+.status-ok{background:#f0fdf4;color:#16a34a;}
+.status-pending{background:#fff8e1;color:#b45309;}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid #4f46e5;border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">⏳</div>
+  <h1>Aguardando pagamento</h1>
+  <p class="sub">Seu pedido foi criado! Complete o pagamento via PIX ou outro método escolhido para confirmar sua inscrição.</p>
+  <div class="info">
+    <p><strong>Data:</strong> 12 de Setembro de 2026</p>
+    <p><strong>Local:</strong> Piscina Olímpica, Complexo Esportivo Pedro Dell'Antônia</p>
+    <p><strong>Endereço:</strong> Rua São Pedro, nº 27 — Jardim Silveira, Santo André, SP</p>
+  </div>
+  <button class="btn" onclick="verificarPagamento()" id="btnVerificar">
+    <span class="spinner" id="spinner" style="display:none"></span>
+    Verificar se pagamento foi confirmado
+  </button>
+  <a href="/" class="btn-secondary">Voltar ao site</a>
+  <div class="status-msg" id="statusMsg"></div>
+  <p class="note">Dúvidas: eventosnatacaosantoandre&#64;gmail.com</p>
+</div>
+
+<script>
+var WORKER_URL = 'https://broad-hall-4f56pagamento-copa.gfontesvitorino.workers.dev';
+var params = new URLSearchParams(window.location.search);
+var reference = params.get('external_reference') || '';
+var paymentId = params.get('payment_id') || params.get('collection_id') || '';
+var status = params.get('status') || params.get('collection_status') || '';
+
+// Se por algum motivo chegou aqui com status approved, redireciona
+if(status === 'approved') {
+  window.location.href = '/sucesso.html' + window.location.search;
+}
+
+function verificarPagamento(){
+  var btn = document.getElementById('btnVerificar');
+  var spinner = document.getElementById('spinner');
+  var msg = document.getElementById('statusMsg');
+
+  btn.disabled = true;
+  spinner.style.display = 'inline-block';
+  msg.style.display = 'none';
+
+  fetch(WORKER_URL + '/status', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ reference: reference, paymentId: paymentId })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    btn.disabled = false;
+    spinner.style.display = 'none';
+
+    if(d.status === 'approved'){
+      // Pagamento confirmado! Redireciona para sucesso
+      msg.className = 'status-msg status-ok';
+      msg.textContent = '✅ Pagamento confirmado! Redirecionando...';
+      msg.style.display = 'block';
+      setTimeout(function(){
+        window.location.href = '/sucesso.html?status=approved&external_reference=' + encodeURIComponent(reference) + '&payment_id=' + (d.paymentId || paymentId);
+      }, 1500);
+    } else {
+      msg.className = 'status-msg status-pending';
+      msg.textContent = '⏳ Pagamento ainda não confirmado. Se já pagou via PIX, aguarde alguns instantes e tente novamente.';
+      msg.style.display = 'block';
+    }
+  })
+  .catch(function(){
+    btn.disabled = false;
+    spinner.style.display = 'none';
+    msg.className = 'status-msg status-pending';
+    msg.textContent = '⚠️ Erro ao verificar. Tente novamente em instantes.';
+    msg.style.display = 'block';
+  });
+}
+
+// Verifica automaticamente a cada 15 segundos
+setInterval(function(){
+  if(reference) verificarPagamento();
+}, 15000);
+</script>
+</body>
+</html>
