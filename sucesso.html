@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Inscrição Confirmada | III Copa Atrium</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F3F8FD;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:48px 40px;max-width:540px;width:100%;text-align:center;box-shadow:0 4px 40px rgba(90,155,213,.12)}
+.check{width:80px;height:80px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.check svg{width:40px;height:40px;stroke:#1D9E75;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+h1{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:#1A2340;margin-bottom:8px}
+.sub{font-size:16px;color:#5A6577;margin-bottom:32px;line-height:1.6}
+.info{background:#F3F8FD;border-radius:14px;padding:20px 24px;margin-bottom:24px;text-align:left}
+.info p{font-size:14px;color:#5A6577;line-height:1.7}
+.info strong{color:#1A2340}
+.btn{display:inline-block;padding:14px 36px;background:#4f46e5;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;border-radius:12px;text-decoration:none}
+.note{margin-top:20px;font-size:13px;color:#9BA5B2}
+.email-ok{margin-top:16px;font-size:13px;color:#1D9E75;font-weight:600}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="check">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h1>Inscrição confirmada!</h1>
+  <p class="sub">Seu pagamento foi aprovado e sua vaga na<br><strong>III Copa Atrium de Natação</strong> está garantida.</p>
+  <div class="info">
+    <p><strong>Data:</strong> 12 de Setembro de 2026</p>
+    <p><strong>Local:</strong> Piscina Olímpica, Complexo Esportivo Pedro Dell'Antônia</p>
+    <p><strong>Endereço:</strong> Rua São Pedro, nº 27 — Jardim Silveira, Santo André, SP</p>
+  </div>
+  <p class="sub" style="font-size:14px;margin-bottom:24px">📧 Um e-mail de confirmação será enviado em breve para o endereço cadastrado.</p>
+  <a href="/" class="btn">Voltar ao site</a>
+  <p class="note">Dúvidas: eventosnatacaosantoandre&#64;gmail.com</p>
+</div>
+
+<script>
+(function(){
+  var WORKER_URL = 'https://broad-hall-4f56pagamento-copa.gfontesvitorino.workers.dev';
+  var params = new URLSearchParams(window.location.search);
+  var paymentId = params.get('payment_id') || params.get('collection_id') || '';
+  var status = params.get('status') || params.get('collection_status') || '';
+  var reference = params.get('external_reference') || '';
+
+  // Só processa se pagamento aprovado
+  if(status !== 'approved') return;
+
+  // Tenta recuperar dados do carrinho do localStorage
+  var inscricaoData = null;
+  try {
+    var stored = localStorage.getItem('copa_inscricao');
+    if(stored) inscricaoData = JSON.parse(stored);
+  } catch(e){}
+
+  if(inscricaoData && inscricaoData.athletes && inscricaoData.athletes.length > 0){
+    // Temos os dados completos — registra como aprovado direto
+    fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        athletes: inscricaoData.athletes,
+        coupon: inscricaoData.coupon || '',
+        discount: inscricaoData.discount || 0,
+        reference: reference || inscricaoData.reference || '',
+        paymentId: paymentId,
+        forceApproved: true
+      })
+    })
+    .then(function(){
+      try { localStorage.removeItem('copa_inscricao'); } catch(e){}
+    })
+    .catch(function(){});
+  } else if(paymentId && reference){
+    // Fallback: não tem localStorage, usa o /confirmar
+    fetch(WORKER_URL + '/confirmar', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        paymentId: paymentId,
+        reference: reference,
+        status: 'approved'
+      })
+    }).catch(function(){});
+  }
+})();
+</script>
+</body>
+</html>
