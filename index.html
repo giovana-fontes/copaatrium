@@ -776,6 +776,8 @@ function applyCoupon(){
   var msg=document.getElementById('couponMsg');
   if(!code){msg.style.display='block';msg.className='coupon-msg err';msg.textContent='Digite um código.';return}
   if(!coupons[code]){msg.style.display='block';msg.className='coupon-msg err';msg.textContent='Cupom inválido.';document.getElementById('discountRow').style.display='none';document.getElementById('finalTotalRow').style.display='none';activeCoupon=null;return}
+  if(code==='LIVRE10'&&(cart.length<10||cart.length>19)){msg.style.display='block';msg.className='coupon-msg err';msg.textContent='LIVRE10 válido para 10 a 19 atletas. Você tem '+cart.length+' atleta(s).';activeCoupon=null;return}
+  if(code==='COSTAS20'&&cart.length<20){msg.style.display='block';msg.className='coupon-msg err';msg.textContent='COSTAS20 válido para 20 ou mais atletas. Você tem '+cart.length+' atleta(s).';activeCoupon=null;return}
   activeCoupon=code;
   msg.style.display='block';msg.className='coupon-msg ok';msg.textContent='Cupom '+code+' aplicado! '+coupons[code]+'% de desconto.';
   applyCouponCalc();
