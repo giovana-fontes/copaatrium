@@ -634,7 +634,7 @@ function carregarLotes(){
 }
 function getLoteNum(kit){
   var now=new Date();
-  var close=new Date('2026-09-11T12:00:00-03:00');
+  var close=new Date('2024-01-01T00:00:00-03:00');
   if(now>close)return 0;
   if(kit==='manha')return lotesData.lote_manha||1;
   if(kit==='tarde')return lotesData.lote_tarde||1;
